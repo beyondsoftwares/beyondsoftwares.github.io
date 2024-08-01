@@ -1298,12 +1298,7 @@ input, textarea, select {
 	padding-left: 8px;
 	margin-left: 4px;
 }
-.shop_single .content .s_bottom .old::before {
-	position: absolute;
-	left: 0;
-	top: 0;
-	content: "/";
-}
+
 .shop_single .badge {
 	position: absolute;
 	top: 12px;
@@ -1574,22 +1569,7 @@ input, textarea, select {
 	font-size: 14px;
 	font-weight: 500;
 }
-.widget_product .content .new {
-	color: #ff8e28;
-	position: relative;
-	margin-right: 5px;
-	padding-right: 9px;
-}
-.widget_product .content .new::before {
-	position: absolute;
-	content: "/";
-	top: 0;
-	right: 0;
-}
-.widget_product .content .old {
-	text-decoration: line-through;
-	color: #949494;
-}
+
 .widget_product > li:not(:last-child) {
 	margin-bottom: 30px;
 }
@@ -3508,14 +3488,6 @@ blockquote .post_author_info span{
 	margin-left: 2px;
 	text-decoration: line-through;
 }
-.recipe_item .ri_content .ri_cart h5 .old::before {
-	position: absolute;
-	left: 0;
-	top: 0;
-	width: 2px;
-	height: 100%;
-	content: "/";
-}
 .recipe_item .ri_content .ri_cart .icon {
 	width: 45px;
 	height: 45px;
@@ -3625,13 +3597,7 @@ blockquote .post_author_info span{
 	margin-right: 8px;
 	padding-right: 8px;
 }
-.breadcrumb_nav li::after {
-	top: 50%;
-	right: -4px;
-	content: "/";
-	position: absolute;
-	transform: translateY(-50%);
-}
+
 .breadcrumb_nav li:last-child:after {
 	display: none;
 }
