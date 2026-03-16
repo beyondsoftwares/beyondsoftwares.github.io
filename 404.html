@@ -1,37 +1,289 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<style>
-  .parent {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* 使用视口高度来保证父元素的高度 */
-  }
- 
-  .child {
-    width: 512px; /* 或者其他尺寸 */
-    padding: 20px; /* 内边距，可选 */
-  }
-  .center-text {
-  text-align: center;
-  font-size: 60;
-  }
-  p {
-    font-size: 64px;
-  }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BeyondSoftware · 404 · Page Not Found</title>
+    <style>
+        /* minimal reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            /* soft yellow background — like warm morning light */
+            background-color: #fef9e7;  
+            font-family: system-ui, -apple-system, 'Segoe UI', Roboto, 'Helvetica Neue', sans-serif;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            line-height: 1.5;
+            padding: 1.5rem;
+            /* subtle extra glow, very light */
+            background-image: radial-gradient(circle at 30% 70%, rgba(255, 245, 200, 0.7) 0%, transparent 50%);
+        }
+
+        /* main card — translucent, friendly, with a yellow-tinted glassmorphism */
+        .message-card {
+            max-width: 680px;
+            width: 100%;
+            background: rgba(255, 250, 235, 0.75);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-radius: 48px 24px 48px 24px;
+            box-shadow: 0 30px 40px -20px rgba(190, 140, 30, 0.25), 
+                        0 12px 25px -12px rgba(140, 100, 20, 0.2),
+                        inset 0 0 0 1px rgba(255, 245, 210, 0.8);
+            padding: 3rem 2.5rem 3rem 2.5rem;
+            transition: transform 0.2s ease;
+        }
+
+        .message-card:hover {
+            transform: scale(1.01) translateY(-4px);
+        }
+
+        /* large 404 — playful and friendly */
+        .big-number {
+            font-size: clamp(6rem, 20vw, 10rem);
+            font-weight: 600;
+            line-height: 0.9;
+            color: #b37b48;        /* warm honey-brown */
+            letter-spacing: -5px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 0.5rem;
+            margin-bottom: 0.75rem;
+            text-shadow: 4px 4px 0 rgba(255, 240, 180, 0.8), 8px 8px 16px rgba(170, 120, 40, 0.15);
+        }
+
+        .big-number span {
+            display: inline-block;
+            transition: transform 0.3s;
+        }
+
+        .big-number span:first-child {
+            transform: rotate(-2deg) translateY(-6px);
+        }
+        .big-number span:last-child {
+            transform: rotate(2deg) translateY(8px);
+        }
+
+        /* little cheerful element — tiny cloud and sun, all in yellow vibe */
+        .fun-element {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin: 1rem 0 2rem 0;
+            flex-wrap: wrap;
+        }
+
+        .cloud-path {
+            display: flex;
+            align-items: center;
+            gap: 0.1rem;
+            font-size: 2.2rem;
+            filter: drop-shadow(2px 4px 8px #fbd898);
+        }
+
+        .cloud-path span {
+            animation floatCloud 4s infinite ease-in-out;
+            transform-origin: center;
+        }
+
+        .cloud-path span:nth-child(2) { animation-delay: 0.2s; }
+        .cloud-path span:nth-child(3) { animation-delay: 0.5s; }
+        .cloud-path span:nth-child(4) { animation-delay: 0.8s; }
+
+        @keyframes floatCloud {
+            0%, 100% { transform: translateY(0); }
+            50% { transform: translateY(-6px); }
+        }
+
+        .lost-message {
+            background: rgba(255, 250, 215, 0.7);
+            border-radius: 60px;
+            padding: 0.6rem 1.6rem;
+            font-size: 1.3rem;
+            color: #8b6b41;
+            border: 1px dashed #f7d38b;
+            backdrop-filter: blur(4px);
+            font-style: italic;
+            font-weight: 350;
+        }
+
+        /* main descriptive text */
+        .description p {
+            font-size: 1.35rem;
+            color: #5e4a33;
+            margin-bottom: 2.5rem;
+            font-weight: 380;
+            border-left: 5px solid #f8cf8c;
+            padding-left: 1.6rem;
+            background: linear-gradient(to right, rgba(255, 245, 200, 0.4), transparent);
+        }
+
+        /* action area — only one home link + gentle extra note (no extra links) */
+        .action-section {
+            display: flex;
+            flex-wrap: wrap;
+            align-items: center;
+            justify-content: space-between;
+            gap: 2rem;
+            margin-top: 1.2rem;
+            border-top: 2px solid rgba(245, 200, 120, 0.6);
+            padding-top: 2rem;
+        }
+
+        .home-link {
+            background: #b88633;        /* warm amber */
+            color: white;
+            text-decoration: none;
+            padding: 0.9rem 2.8rem;
+            border-radius: 50px;
+            font-weight: 500;
+            font-size: 1.25rem;
+            letter-spacing: 0.3px;
+            box-shadow: 0 16px 22px -10px rgba(170, 110, 30, 0.4);
+            transition: all 0.15s;
+            border: 1px solid rgba(255, 240, 180, 0.7);
+            display: inline-flex;
+            align-items: center;
+            gap: 0.6rem;
+        }
+
+        .home-link:hover {
+            background: #cc9747;
+            box-shadow: 0 22px 26px -12px #b57a32;
+            transform: translateY(-3px);
+        }
+
+        .home-link:active {
+            transform: translateY(2px);
+            box-shadow: 0 10px 16px -8px #9e6d2f;
+        }
+
+        .gentle-note {
+            color: #aa834e;
+            font-size: 1.05rem;
+            display: flex;
+            align-items: center;
+            gap: 0.3rem;
+            background: rgba(250, 240, 190, 0.4);
+            padding: 0.4rem 1.2rem;
+            border-radius: 40px;
+            backdrop-filter: blur(4px);
+        }
+
+        .gentle-note span {
+            font-size: 1.4rem;
+            filter: drop-shadow(0 2px 4px #f3cf92);
+        }
+
+        /* very subtle bottom decoration */
+        .bottom-note {
+            margin-top: 2.3rem;
+            font-size: 0.95rem;
+            color: #b39262;
+            display: flex;
+            align-items: center;
+            gap: 0.6rem;
+            opacity: 0.8;
+            justify-content: center;
+            border-bottom: 1px dashed #efd9a7;
+            padding-bottom: 0.5rem;
+        }
+
+        .bottom-note .dot {
+            width: 8px;
+            height: 8px;
+            background: #e7bc74;
+            border-radius: 50%;
+            display: inline-block;
+        }
+
+        /* responsive adjustments */
+        @media (max-width: 500px) {
+            .message-card {
+                padding: 2rem 1.5rem;
+                border-radius: 36px 16px 36px 16px;
+            }
+            .big-number {
+                gap: 0.1rem;
+            }
+            .cloud-path {
+                font-size: 1.8rem;
+            }
+            .lost-message {
+                font-size: 1.1rem;
+                padding: 0.4rem 1.2rem;
+            }
+            .description p {
+                font-size: 1.15rem;
+            }
+            .action-section {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1.2rem;
+            }
+        }
+
+        /* selection color matches the theme */
+        ::selection {
+            background-color: #f8dfb0;
+            color: #5a3f1c;
+        }
+    </style>
 </head>
 <body>
- 
-<div class="parent">
-  <div class="child">
-    <img border="0" src="./common/not_found.png" alt="404 not found" width="512" height="512">
-    <div class="center-text">
-    <p>404 Not Found <br/><a href="http://www.beyondsoftware.cc" target="_self">Home</a></p>
+    <div class="message-card">
+        <!-- playful 404 with tilt -->
+        <div class="big-number">
+            <span>4</span>
+            <span>0</span>
+            <span>4</span>
+        </div>
+
+        <!-- floating cloud duo — keeps the whimsy, but now in yellow light -->
+        <div class="fun-element">
+            <div class="cloud-path">
+                <span>☁️</span>
+                <span>☁️</span>
+                <span>☀️</span>
+                <span>☁️</span>
+            </div>
+            <div class="lost-message">
+                ✦ a little cloud got lost ✦
+            </div>
+        </div>
+
+        <!-- simple, friendly explanation in English -->
+        <div class="description">
+            <p>
+                Looks like the page you’re after drifted off somewhere else.<br>
+                No worries — even clouds find their way back.
+            </p>
+        </div>
+
+        <!-- only one home link; extra mini decoration instead of three small links -->
+        <div class="action-section">
+            <a href="#" class="home-link" onclick="alert('✨ Headed home (demo) ✨'); return false;">
+                <span>🏡</span> back to home
+            </a>
+            <div class="gentle-note">
+                <span>☁️</span> just a sunny detour
+            </div>
+        </div>
+
+        <!-- tiny footer with soft yellow sentiment (no extra links) -->
+        <div class="bottom-note">
+            <span class="dot"></span>
+            <span>404 · warm breeze & open skies</span>
+            <span class="dot"></span>
+        </div>
     </div>
-  </div>
-</div>
- 
 </body>
 </html>
